@@ -17,6 +17,9 @@
 		590C4BD328A4C86700809033 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590C4BA928A4C86600809033 /* ContentView.swift */; };
 		590C4BD428A4C86700809033 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 590C4BAA28A4C86700809033 /* Assets.xcassets */; };
 		590C4BD528A4C86700809033 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 590C4BAA28A4C86700809033 /* Assets.xcassets */; };
+		596A19D528A9FA4E003719C4 /* loaddata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A19D428A9FA4E003719C4 /* loaddata.swift */; };
+		596A19D828A9FAB4003719C4 /* densities_2.json in Resources */ = {isa = PBXBuildFile; fileRef = 596A19D728A9FAB4003719C4 /* densities_2.json */; };
+		596A19DA28AA0C6B003719C4 /* Density.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A19D928AA0C6B003719C4 /* Density.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		590C4BC828A4C86700809033 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		590C4BCC28A4C86700809033 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		590C4BCE28A4C86700809033 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
+		596A19D428A9FA4E003719C4 /* loaddata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loaddata.swift; sourceTree = "<group>"; };
+		596A19D728A9FAB4003719C4 /* densities_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = densities_2.json; sourceTree = "<group>"; };
+		596A19D928AA0C6B003719C4 /* Density.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Density.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +92,7 @@
 		590C4BA228A4C86600809033 = {
 			isa = PBXGroup;
 			children = (
+				590C4BE628A9F76800809033 /* Data */,
 				590C4BA728A4C86600809033 /* Shared */,
 				590C4BB628A4C86700809033 /* macOS */,
 				590C4BBF28A4C86700809033 /* Tests iOS */,
@@ -139,6 +146,24 @@
 				590C4BCE28A4C86700809033 /* Tests_macOSLaunchTests.swift */,
 			);
 			path = "Tests macOS";
+			sourceTree = "<group>";
+		};
+		590C4BE628A9F76800809033 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				596A19D428A9FA4E003719C4 /* loaddata.swift */,
+				596A19D928AA0C6B003719C4 /* Density.swift */,
+				596A19D628A9FA96003719C4 /* Resources */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		596A19D628A9FA96003719C4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				596A19D728A9FAB4003719C4 /* densities_2.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				590C4BD428A4C86700809033 /* Assets.xcassets in Resources */,
+				596A19D828A9FAB4003719C4 /* densities_2.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +325,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				596A19DA28AA0C6B003719C4 /* Density.swift in Sources */,
+				596A19D528A9FA4E003719C4 /* loaddata.swift in Sources */,
 				590C4BD228A4C86700809033 /* ContentView.swift in Sources */,
 				590C4BD028A4C86700809033 /* unit_converterApp.swift in Sources */,
 			);
