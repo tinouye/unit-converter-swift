@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import SwiftUI
 
 var densities: [Density] = load("densities_2.json")
+var testVar2: Int = 10
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data

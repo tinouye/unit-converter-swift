@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+var testFoo = 4
+
 struct ContentView: View {
     @State private var testInput: String = "20"
     @State private var testResult: String = "asdf"
@@ -22,8 +24,8 @@ struct ContentView: View {
             TextField("test", text: $testInput)
             Text("Hello \(testInput) \(testResult)")
             Menu("Test Menu") {
-                ForEach(testAr.indices, id: \.self) {index in
-                    Button(testAr[index], action: {
+                ForEach(densities.indices, id: \.self) {index in
+                    Button(densities[index].ingredient, action: {
                         currIngredient = index
                         testResult = testAr[index]
                     })
