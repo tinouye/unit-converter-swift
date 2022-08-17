@@ -10,5 +10,5 @@ import SwiftUI
 
 struct Density: Hashable, Codable {
     var ingredient: String
-    var density: Float32
+    var density: String
 }

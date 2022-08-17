@@ -13,7 +13,6 @@ struct ContentView: View {
     @State private var testInput: String = "20"
     @State private var testResult: String = "asdf"
     @State private var currIngredient: Int = 0
-    var testAr: [String] = ["Apple", "Banana", "Cherry", "Durian"]
     
     func UpdateCurrentIngredient(index:Int) {
         currIngredient = index
@@ -26,8 +25,7 @@ struct ContentView: View {
             Menu("Test Menu") {
                 ForEach(densities.indices, id: \.self) {index in
                     Button(densities[index].ingredient, action: {
-                        currIngredient = index
-                        testResult = testAr[index]
+                        testResult = updateDensityCalc(val: testInput, unit: "gram", density: densities[index].density)
                     })
                 }
             }
