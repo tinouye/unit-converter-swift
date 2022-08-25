@@ -8,6 +8,21 @@
 import SwiftUI
 
 var testFoo = 4
+let units = [
+    "Ounces",
+    "Pounds",
+    "Grams",
+    "Kilograms",
+    "Teaspoons",
+    "Tablespoons",
+    "Fluid Ounces",
+    "Cups",
+    "Pints",
+    "Quarts",
+    "Gallons",
+    "Mililiters",
+    "Liters"
+]
 
 struct ContentView: View {
     @State private var testInput: String = "20"
@@ -22,10 +37,26 @@ struct ContentView: View {
         VStack{
             TextField("test", text: $testInput)
             Text("Hello \(testInput) \(testResult)")
+            HStack{
+                Menu("Convert from:") {
+                    ForEach(units.indices, id: \.self) {index in
+                        Button(units[index], action: {
+                            print("foo")
+                        })
+                    }
+                }
+                Menu("Convert to:") {
+                    ForEach(units.indices, id: \.self) {index in
+                        Button(units[index], action: {
+                            print("bar")
+                        })
+                    }
+                }
+            }
             Menu("Test Menu") {
                 ForEach(densities.indices, id: \.self) {index in
                     Button(densities[index].ingredient, action: {
-                        testResult = updateDensityCalc(val: testInput, unit: "gram", density: densities[index].density)
+                        testResult = updateDensityCalc(val: testInput, inputUnit: "g", outputUnit: "ml", density: densities[index].density)
                     })
                 }
             }
