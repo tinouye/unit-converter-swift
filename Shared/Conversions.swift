@@ -11,19 +11,19 @@ import SwiftUI
 func updateDensityCalc(val valStr: String, inputUnit inputUnitStr: String, outputUnit outputUnitStr: String, density densityStr: String) -> String {
     
     let unitsDict = [
-        "oz": UnitMass.ounces,
-        "lb": UnitMass.pounds,
-        "g": UnitMass.grams,
-        "kg": UnitMass.kilograms,
-        "tsp": UnitVolume.teaspoons,
-        "tbsp": UnitVolume.tablespoons,
-        "fl-oz": UnitVolume.fluidOunces,
-        "cup": UnitVolume.cups,
-        "pint": UnitVolume.pints,
-        "quart": UnitVolume.quarts,
-        "gal": UnitVolume.gallons,
-        "ml": UnitVolume.milliliters,
-        "l": UnitVolume.liters
+        "Ounces": UnitMass.ounces,
+        "Pounds": UnitMass.pounds,
+        "Grams": UnitMass.grams,
+        "Kilograms": UnitMass.kilograms,
+        "Teaspoons": UnitVolume.teaspoons,
+        "Tablespoons": UnitVolume.tablespoons,
+        "Fluid Ounces": UnitVolume.fluidOunces,
+        "Cups": UnitVolume.cups,
+        "Pints": UnitVolume.pints,
+        "Quarts": UnitVolume.quarts,
+        "Gallons": UnitVolume.gallons,
+        "Mililiters": UnitVolume.milliliters,
+        "Liters": UnitVolume.liters
     ]
     
     //Ensure that arguments from user input are valid

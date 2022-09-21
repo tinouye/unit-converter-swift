@@ -25,42 +25,53 @@ let units = [
 ]
 
 struct ContentView: View {
-    @State private var testInput: String = "20"
-    @State private var testResult: String = "asdf"
-    @State private var currIngredient: Int = 0
-    
-    func UpdateCurrentIngredient(index:Int) {
-        currIngredient = index
-    }
+    @State private var inputValue: String = "20"
+    @State private var outputValue: String = "asdf"
+    @State private var currIngredient: Ingredient = Ingredient(name: "None", density: "0")
+    @State private var ingredientLabel: String = "Choose an Ingredient"
+    @State private var inputUnit: String = "Convert from:"
+    @State private var outputUnit: String = "Convert to:"
     
     var body: some View {
         VStack{
-            TextField("test", text: $testInput)
-            Text("Hello \(testInput) \(testResult)")
+            // Enter number to convert here
+            TextField("test", text: $inputValue)
+            
             HStack{
-                Menu("Convert from:") {
+                // Input unit
+                Menu(inputUnit) {
                     ForEach(units.indices, id: \.self) {index in
                         Button(units[index], action: {
-                            print("foo")
+                            inputUnit = units[index]
                         })
                     }
                 }
-                Menu("Convert to:") {
+                // Output unit
+                Menu(outputUnit) {
                     ForEach(units.indices, id: \.self) {index in
-                        Button(units[index], action: {
-                            print("bar")
-                        })
+                        Button(units[index]) {
+                            outputUnit = units[index]
+                        }
                     }
                 }
             }
-            Menu("Test Menu") {
-                ForEach(densities.indices, id: \.self) {index in
-                    Button(densities[index].ingredient, action: {
-                        testResult = updateDensityCalc(val: testInput, inputUnit: "g", outputUnit: "ml", density: densities[index].density)
-                    })
+            
+            //Ingredient picker
+            Menu(ingredientLabel) {
+                ForEach(ingredientsList.indices, id: \.self) {index in
+                    Button(ingredientsList[index].name) {
+                        currIngredient = ingredientsList[index]
+                        ingredientLabel = ingredientsList[index].name
+                    }
                 }
             }
-        }
+            Button("Convert") {
+                outputValue = updateDensityCalc(val: inputValue, inputUnit: inputUnit, outputUnit: outputUnit, density: currIngredient.density)
+
+            }
+            Text("\(inputValue) \(inputUnit) = \(outputValue) \(outputUnit)")
+
+        }.padding()
     }
 }
 
