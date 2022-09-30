@@ -31,37 +31,44 @@ struct ContentView: View {
     @State private var ingredientLabel: String = "Choose an Ingredient"
     @State private var inputUnit: String = "Convert from:"
     @State private var outputUnit: String = "Convert to:"
+    @State private var inputsHolder = InputsHolder(
+        inputValue: "20",
+        inputUnit: "asdf",
+        outputUnit: "Convert to:",
+        ingredient: ingredientsList[0]
+    )
     
     var body: some View {
         VStack{
             // Enter number to convert here
-            TextField("test", text: $inputValue)
+            TextField("test", text: $inputsHolder.inputValue)
             
             HStack{
                 // Input unit
-                Menu(inputUnit) {
+                Menu(inputsHolder.inputUnit) {
                     ForEach(units.indices, id: \.self) {index in
                         Button(units[index], action: {
-                            inputUnit = units[index]
+                            //inputUnit = units[index]
+                            inputsHolder.inputUnit = units[index]
                         })
                     }
                 }
                 // Output unit
-                Menu(outputUnit) {
+                Menu(inputsHolder.outputUnit) {
                     ForEach(units.indices, id: \.self) {index in
                         Button(units[index]) {
-                            outputUnit = units[index]
+                            inputsHolder.outputUnit = units[index]
                         }
                     }
                 }
             }
             
             //Ingredient picker
-            Menu(ingredientLabel) {
+            Menu(inputsHolder.ingredient.name) {
                 ForEach(ingredientsList.indices, id: \.self) {index in
                     Button(ingredientsList[index].name) {
-                        currIngredient = ingredientsList[index]
-                        ingredientLabel = ingredientsList[index].name
+                        inputsHolder.ingredient = ingredientsList[index]
+                        //ingredientLabel = ingredientsList[index].name
                     }
                 }
             }
@@ -69,9 +76,13 @@ struct ContentView: View {
                 outputValue = updateDensityCalc(val: inputValue, inputUnit: inputUnit, outputUnit: outputUnit, density: currIngredient.density)
 
             }
-            Text("\(inputValue) \(inputUnit) = \(outputValue) \(outputUnit)")
+
+            Text("\(inputsHolder.inputValue) \(inputsHolder.inputUnit) = \(inputsHolder.outputValue) \(inputsHolder.outputUnit)")
 
         }.padding()
+            .onChange(of: inputsHolder) { newValue in
+                inputsHolder.convert()
+            }
     }
 }
 
